@@ -1,4 +1,6 @@
-import Navbar from "/src/components/nav";
+import { ReactNode } from "react";
+
+import Navbar from "src/components/nav";
 import "/app/globals.css";
 
 export const metadata = {
@@ -6,7 +8,7 @@ export const metadata = {
   description: "329 Design",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ko">
       <body>
