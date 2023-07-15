@@ -8,7 +8,7 @@ const Contact = () => {
   //   callTime: "",
   // });
 
-  const submit = (e) => {
+  const submit = (e: any) => {
     alert("전송완료");
   };
 
