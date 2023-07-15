@@ -8,7 +8,7 @@
     "no-console": "warn",
     "react-hooks/exhaustive-deps": "off"
   },
-  "plugins": ["react"],
+  "plugins": ["react", "prettier", "prettier-plugin-tailwindcss"],
   "env": {
     "browser": true,
     "node": true,

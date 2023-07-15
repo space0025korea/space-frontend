@@ -16,9 +16,13 @@ const Navbar = () => {
 
   return (
     <header className="bg-slate-300">
-      <nav className='mx-auto max-w-7xl items-center justify-between p-6 lg:px-8 flex" aria-label="Global'>
+      <nav className='aria-label="Global mx-auto flex max-w-7xl items-center p-6 lg:px-8'>
         <a href="#" className="-m-1.5 p-1.5">
-          <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+          <img
+            className="h-8 w-auto"
+            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+            alt=""
+          />
         </a>
         <div className="flex lg:hidden">
           <button
@@ -31,7 +35,11 @@ const Navbar = () => {
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
-            <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+            <a
+              key={item.name}
+              href={item.href}
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
               {item.name}
             </a>
           ))}
@@ -89,6 +97,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-

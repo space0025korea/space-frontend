@@ -25,8 +25,8 @@ const Contact = () => {
           <input
             type="text"
             name="고객명"
-          // value={inputData.name}
-          // onChange={(e) => setInputData((prev) => ({ ...prev, name: e.target.value }))}
+            // value={inputData.name}
+            // onChange={(e) => setInputData((prev) => ({ ...prev, name: e.target.value }))}
           />
         </div>
         <div>
@@ -34,8 +34,8 @@ const Contact = () => {
           <input
             type="tel"
             name="연락처"
-          // value={inputData.phone}
-          // onChange={(e) => setInputData((prev) => ({ ...prev, phone: e.target.value }))}
+            // value={inputData.phone}
+            // onChange={(e) => setInputData((prev) => ({ ...prev, phone: e.target.value }))}
           />
         </div>
         <div>
@@ -43,8 +43,8 @@ const Contact = () => {
           <input
             type="text"
             name="통화 가능시간"
-          // value={inputData.callTime}
-          // onChange={(e) => setInputData((prev) => ({ ...prev, callTime: e.target.value }))}
+            // value={inputData.callTime}
+            // onChange={(e) => setInputData((prev) => ({ ...prev, callTime: e.target.value }))}
           />
         </div>
         <button type="submit">메일보내기</button>
