@@ -1,16 +1,37 @@
-export const getContent = async () => {
-  const TOKEN = process.env.NEXT_PUBLIC_API_TOKEN;
+import { gql } from "@apollo/client";
 
-  const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL as string, {
-    // cache: "no-store",
-    headers: {
-      Authorization: `Bearer ${TOKEN}`,
-    },
-  });
-  if (!response.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data");
+export const GET_PROJECTS = gql`
+  query Projects {
+    projects {
+      data {
+        id
+        attributes {
+          description
+          title
+          area
+          category
+          location
+          publishedAt
+          photos {
+            data {
+              id
+              attributes {
+                name
+                url
+              }
+            }
+          }
+          drawing {
+            data {
+              id
+              attributes {
+                name
+                url
+              }
+            }
+          }
+        }
+      }
+    }
   }
-  const contents = await response.json();
-  return { props: { contents } };
-};
+`;
