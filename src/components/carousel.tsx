@@ -6,7 +6,10 @@ import "swiper/css/effect-fade";
 import "swiper/css/autoplay";
 
 const Carousel = () => {
-  const imagesPath = Array.from({ length: 5 }, (_, index) => `/images/main${index + 1}.jpeg`);
+  const imagesPath = Array.from(
+    { length: 5 },
+    (_, index) => `/images/main${index + 1}.jpeg`
+  );
 
   return (
     <Swiper
@@ -21,7 +24,7 @@ const Carousel = () => {
           {imagesPath.map((item) => (
             <SwiperSlide key={item} className="min-h-screen min-w-full">
               <div
-                style={{backgroundImage:`url(${item})`}}
+                style={{ backgroundImage: `url(${item})` }}
                 className="h-screen bg-cover bg-local bg-center bg-no-repeat"
               ></div>
             </SwiperSlide>

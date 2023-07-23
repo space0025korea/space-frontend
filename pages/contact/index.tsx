@@ -1,4 +1,5 @@
 "use client";
+import Layout from "components/layout";
 import React from "react";
 
 const Contact = () => {
@@ -13,7 +14,7 @@ const Contact = () => {
   };
 
   return (
-    <>
+    <Layout title="문의">
       <form
         onSubmit={submit}
         method="post"
@@ -51,7 +52,7 @@ const Contact = () => {
       </form>
 
       <iframe name="frAttachFiles" className="invisible"></iframe>
-    </>
+    </Layout>
   );
 };
 

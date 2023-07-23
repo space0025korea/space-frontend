@@ -6,7 +6,7 @@ import Layout from "components/layout";
 
 const page = () => {
   return (
-    <Layout>
+    <Layout noFooter>
       <Link href={"/portfolio"}>
         <div className="relative">
           <Carousel />
