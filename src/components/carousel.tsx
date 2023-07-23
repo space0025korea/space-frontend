@@ -20,7 +20,7 @@ const Carousel = () => {
       <div className="swiper">
         <div className="swiper-wrapper">
           {imagesPath.map((item) => (
-            <SwiperSlide key={item} className="min-h-screen min-w-full bg-yellow-100">
+            <SwiperSlide key={item} className="min-h-screen min-w-full">
               <Image src={item} alt="main images" fill className="object-cover" />
             </SwiperSlide>
           ))}
