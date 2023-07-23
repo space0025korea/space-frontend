@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -21,7 +20,10 @@ const Carousel = () => {
         <div className="swiper-wrapper">
           {imagesPath.map((item) => (
             <SwiperSlide key={item} className="min-h-screen min-w-full">
-              <Image src={item} alt="main images" fill className="object-cover" />
+              <div
+                style={{backgroundImage:`url(${item})`}}
+                className="h-screen bg-cover bg-local bg-center bg-no-repeat"
+              ></div>
             </SwiperSlide>
           ))}
         </div>
