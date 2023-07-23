@@ -5,7 +5,12 @@ const nextConfig = {
     domains: ["res.cloudinary.com"],
   },
   async rewrites() {
-    return [{ source: "/graphql", destination: `${process.env.NEXT_PUBLIC_BACKEND_URL}/graphql` }];
+    return [
+      {
+        source: "/graphql",
+        destination: `${process.env.NEXT_PUBLIC_BACKEND_URL}/graphql`,
+      },
+    ];
   },
 };
 

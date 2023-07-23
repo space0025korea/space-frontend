@@ -1,18 +1,27 @@
 import React, { ReactNode } from "react";
 import Head from "next/head";
 
+import Footer from "components/layout/footer";
+import Navbar from "components/nav";
+
 type LayoutProps = {
   children: ReactNode;
   title?: string;
+  noNavbar?: boolean;
+  noFooter?: boolean;
 };
 
-const Layout = ({ children, title }: LayoutProps) => {
+const Layout = ({ children, title, noNavbar, noFooter }: LayoutProps) => {
   return (
     <>
       <Head>
         <title>{title ? `329Design | ${title}` : "329Design"}</title>;
       </Head>
-      {children}
+      <div className="min-h-screen ">
+        {!noNavbar && <Navbar />}
+        {children}
+        {!noFooter && <Footer />}
+      </div>
     </>
   );
 };
