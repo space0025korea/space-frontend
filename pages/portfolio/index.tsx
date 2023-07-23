@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 import Image from "next/image";
 
 import { GET_PROJECTS } from "pages/api/portfolio";
+import Layout from "components/layout";
 
 type DataType = {
   attributes: {
@@ -31,22 +32,24 @@ const Portfolio = () => {
 
   return (
     <>
-      {projects.map(({ attributes, id }) => (
-        <li key={id} className="= border-b-8 border-yellow-300">
-          <h1>{attributes.title}</h1>
-          <p>{attributes.description}</p>
-          {attributes.photos.data.map((img) => (
-            <Image
-              src={img.attributes.url}
-              // TODO: 이미지 반응형으로 수정
-              width={200}
-              height={200}
-              alt="drawing images"
-              key={img.id}
-            />
-          ))}
-        </li>
-      ))}
+      <Layout title={"포트폴리오"}>
+        {projects.map(({ attributes, id }) => (
+          <li key={id} className="= border-b-8 border-yellow-300">
+            <h1>{attributes.title}</h1>
+            <p>{attributes.description}</p>
+            {attributes.photos.data.map((img) => (
+              <Image
+                src={img.attributes.url}
+                // TODO: 이미지 반응형으로 수정
+                width={200}
+                height={200}
+                alt="drawing images"
+                key={img.id}
+              />
+            ))}
+          </li>
+        ))}
+      </Layout>
     </>
   );
 };
