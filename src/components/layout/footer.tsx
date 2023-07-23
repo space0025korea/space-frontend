@@ -10,7 +10,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="fixed bottom-0 w-full px-10 py-5 text-sm text-slate-800">
+    <footer className="px-10 py-5 text-sm text-slate-800">
       <hr className="mb-5 w-full" />
       <h1 className="text-base font-bold">329Design</h1>
       <div className="flex flex-wrap justify-between">
