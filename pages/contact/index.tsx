@@ -85,7 +85,7 @@ const Contact = () => {
                       <div className="col-span-full">
                         <label htmlFor={key} className="block font-medium leading-6 text-gray-900">
                           * 파일 갯수 제한: 최대 5개
-                          <br />* 파일 용량 제한: 쵀대 1mb
+                          <br />* 파일 용량 제한: 최대 1mb
                         </label>
                         <label
                           htmlFor={key}
