@@ -7,20 +7,19 @@ import Navbar from "components/nav";
 type LayoutProps = {
   children: ReactNode;
   title?: string;
-  noNavbar?: boolean;
-  noFooter?: boolean;
+  isMain?: boolean;
 };
 
-const Layout = ({ children, title, noNavbar, noFooter }: LayoutProps) => {
+const Layout = ({ children, title, isMain }: LayoutProps) => {
   return (
     <>
       <Head>
         <title>{title ? `329Design | ${title}` : "329Design"}</title>;
       </Head>
       <div className="min-h-screen ">
-        {!noNavbar && <Navbar />}
-        <main className="px-10 py-5">{children}</main>
-        {!noFooter && <Footer />}
+        {!isMain && <Navbar />}
+        <main className={isMain ? "" : "px-10 py-5"}>{children}</main>
+        {!isMain && <Footer />}
       </div>
     </>
   );
