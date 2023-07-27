@@ -89,9 +89,9 @@ const Contact = () => {
                         </label>
                         <label
                           htmlFor={key}
-                          className="relative cursor-pointer rounded-md bg-white font-semibold text-gray-600 focus-within:outline-none"
+                          className="relative cursor-pointer rounded-md bg-white font-semibold text-gray-600 shadow-sm focus-within:outline-none"
                         >
-                          <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                          <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10 shadow-sm">
                             <div className="text-center">
                               <PhotoIcon
                                 className="mx-auto h-12 w-12 text-gray-300"
@@ -124,7 +124,7 @@ const Contact = () => {
                             id={key}
                             name={key}
                             rows={3}
-                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-gray-300 focus:ring-gray-300 sm:text-sm sm:leading-6"
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-gray-300 focus:ring-gray-300 sm:text-sm sm:leading-6"
                           />
                         </div>
                       </div>
@@ -140,7 +140,7 @@ const Contact = () => {
                               type="text"
                               name={key}
                               id={key}
-                              className="block flex-1 rounded-md border-solid border-gray-300 bg-transparent py-1.5 pl-3 text-gray-900  focus:border-gray-300 focus:ring-0 sm:text-sm sm:leading-6"
+                              className="block flex-1 rounded-md border-solid border-gray-300 bg-transparent py-1.5 pl-3 text-gray-900  shadow-sm focus:border-gray-300 focus:ring-0 sm:text-sm sm:leading-6"
                             />
                           </div>
                         </div>
