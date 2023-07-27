@@ -19,7 +19,7 @@ const Layout = ({ children, title, noNavbar, noFooter }: LayoutProps) => {
       </Head>
       <div className="min-h-screen ">
         {!noNavbar && <Navbar />}
-        {children}
+        <main className="px-10 py-5">{children}</main>
         {!noFooter && <Footer />}
       </div>
     </>
