@@ -113,9 +113,9 @@ const Contact = () => {
 
     // 파일 사이즈 확인
     for (let i = 0; i < fileList.length; i++) {
-      const fileSizeMB = fileList[i].size / (1024 * 1024 * 5);
+      const fileSizeMB = fileList[i].size / (1024 * 1024 * 2);
       if (fileSizeMB > MAX_FILE_SIZE_MB) {
-        alert(`${fileList[i].name}의 용량이 5MB 이상입니다.`);
+        alert(`${fileList[i].name}의 용량이 2MB 이상입니다.`);
         e.target.value = "";
         return;
       } else {
@@ -185,7 +185,7 @@ const Contact = () => {
                           className="block text-sm font-medium leading-6 text-gray-900"
                         >
                           * 파일 갯수 제한: 최대 5개
-                          <br />* 파일 용량 제한: 최대 5mb
+                          <br />* 파일 용량 제한: 최대 2mb
                         </label>
                         <label
                           htmlFor={key}
