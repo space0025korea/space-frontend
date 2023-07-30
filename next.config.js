@@ -10,6 +10,10 @@ const nextConfig = {
         source: "/graphql",
         destination: `${process.env.NEXT_PUBLIC_BACKEND_URL}/graphql`,
       },
+      {
+        source: "/cloudinary/:path*",
+        destination: `${process.env.NEXT_PUBLIC_CLOUDINARY_ENDPOINT}/:path*`,
+      },
     ];
   },
 };
