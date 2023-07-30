@@ -14,7 +14,9 @@ jobs:
           node-version: 19.4.0
 
       - name: Generate env variables file for production
-        run: echo "NEXT_PUBLIC_BACKEND_URL=${{secrets.NEXT_PUBLIC_BACKEND_URL}}">>.env.production
+        run: |
+          echo "NEXT_PUBLIC_BACKEND_URL=${{secrets.NEXT_PUBLIC_BACKEND_URL}}">>.env.production
+          echo "NEXT_PUBLIC_CLOUDINARY_ENDPOINT=${{secrets.NEXT_PUBLIC_CLOUDINARY_ENDPOINT}}">>.env.production
 
       - name: Install dependencies
         run: npm install
