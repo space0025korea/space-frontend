@@ -3,8 +3,7 @@ import axios from "axios";
 import { PhotoIcon } from "@heroicons/react/24/solid";
 
 import Layout from "components/layout";
-
-// TODO: 로딩스피너 적용!!!
+import Spinner from "components/loading";
 
 type FormFieldType = {
   category: string;
@@ -16,8 +15,10 @@ type FormFieldType = {
   }[];
 };
 
+type ImgFileType = { src: string; name: string };
+
 export type InputDataType = {
-  [key: string]: string | string[];
+  [key: string]: string | ImgFileType[];
   request: string;
   concept: string;
   rating: string;
@@ -31,7 +32,7 @@ export type InputDataType = {
   callTime: string;
   phone: string;
   name: string;
-  imgFile: string[];
+  imgFile: ImgFileType[];
 };
 
 export const formField: FormFieldType[] = [
@@ -77,7 +78,7 @@ export const formField: FormFieldType[] = [
 ];
 
 const Contact = () => {
-  const [inputData, setInputData] = useState<InputDataType>({
+  const initialData = {
     name: "",
     phone: "",
     callTime: "",
@@ -91,15 +92,16 @@ const Contact = () => {
     rating: "",
     concept: "",
     request: "",
-    imgFile: [""],
-  });
-  const [fileName, setFileName] = useState<string[]>();
+    imgFile: [{ src: "", name: "" }],
+  };
+  const [inputData, setInputData] = useState<InputDataType>(initialData);
+  const [isUploading, setIsUploading] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
   const onChangeFile = (e: ChangeEvent<HTMLInputElement>) => {
     const fileList = e.target.files;
     const MAX_FILES = 5;
     const MAX_FILE_SIZE_MB = 1;
-    const fileNameArray = [];
 
     if (!fileList) return;
     // 파일 갯수 확인
@@ -117,11 +119,9 @@ const Contact = () => {
         e.target.value = "";
         return;
       } else {
-        fileNameArray.push(fileList[i].name);
       }
     }
 
-    setFileName(fileNameArray);
     return uploadImage(fileList);
   };
 
@@ -132,25 +132,35 @@ const Contact = () => {
 
   const uploadImage = async (files: FileList) => {
     const formData = new FormData();
-
-    const tempArr: string[] = [];
+    const imgFileArray: ImgFileType[] = [];
+    setIsUploading(true);
     for (let i = 0; i < files.length; i++) {
       formData.append("file", files[i]);
       formData.append("upload_preset", "hdg45mhf");
 
-      await axios
-        .post("/cloudinary/image/upload", formData)
-        .then((res) => tempArr.push(res.data.secure_url));
+      await axios.post("/cloudinary/image/upload", formData).then((res) => {
+        imgFileArray.push({ src: res.data.secure_url, name: files[i].name });
+      });
     }
-    setInputData({ ...inputData, imgFile: tempArr });
+
+    setInputData({ ...inputData, imgFile: imgFileArray });
+    setIsUploading(false);
   };
 
   const submit = async (e: FormEvent) => {
     e.preventDefault();
+    setIsSending(true);
     axios
       .post("/api/send", inputData)
-      .then((res) => alert(res.data.message))
-      .catch((err) => alert(err.response.data.message));
+      .then((res) => {
+        setIsSending(false);
+        setInputData(initialData);
+        alert(res.data.message);
+      })
+      .catch((err) => {
+        setIsSending(false);
+        alert(err.response.data.message);
+      });
   };
 
   return (
@@ -199,10 +209,12 @@ const Contact = () => {
                                   onChange={onChangeFile}
                                 />
                               </div>
-                              {fileName ? (
+                              {isUploading ? (
+                                <Spinner />
+                              ) : inputData.imgFile[0]?.src !== "" ? (
                                 <div className="text-sm font-normal">
-                                  {fileName.map((name, index) => (
-                                    <li key={index}>{name}</li>
+                                  {inputData.imgFile.map(({ name, src }) => (
+                                    <li key={src}>{name}</li>
                                   ))}
                                 </div>
                               ) : (
@@ -224,6 +236,7 @@ const Contact = () => {
                             rows={3}
                             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-gray-300 focus:ring-gray-300 sm:text-sm sm:leading-6"
                             required={required}
+                            value={inputData[key] as string}
                             onChange={onChange}
                           />
                         </div>
@@ -242,6 +255,7 @@ const Contact = () => {
                               className="block flex-1 rounded-md border-solid border-gray-300 bg-transparent py-1.5 pl-3 text-gray-900  shadow-sm focus:border-gray-300 focus:ring-0 sm:text-sm sm:leading-6"
                               required={required}
                               onChange={onChange}
+                              value={inputData[key] as string}
                             />
                           </div>
                         </div>
@@ -253,13 +267,21 @@ const Contact = () => {
             </div>
           ))}
         </div>
-
         <div className="mt-6 flex items-center justify-end gap-x-6">
           <button
             type="submit"
-            className="rounded-md px-3 py-2 font-semibold text-black ring-1 ring-inset ring-gray-300 "
+            className={`rounded-md px-3 py-2 font-semibold ring-1 ring-inset ring-gray-300 ${
+              isUploading ? "text-gray-300" : "text-black"
+            }`}
+            disabled={isUploading}
           >
-            메일 보내기
+            {isSending ? (
+              <div className="flex items-center gap-2">
+                <Spinner /> 메일 전송 중
+              </div>
+            ) : (
+              "메일 보내기"
+            )}
           </button>
         </div>
       </form>

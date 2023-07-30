@@ -24,10 +24,10 @@ export const generateEmail = (inputData: InputDataType) => {
           inputData[key] as string
         )}</div>`;
       } else {
-        if (inputData.imgFile[0] !== "") {
+        if (inputData.imgFile[0]?.name !== "") {
           emailContents += "<strong>첨부파일</strong>:";
           inputData.imgFile.map(
-            (src) =>
+            ({ src }) =>
               (emailContents += `
             <img src=${XSScheck(src)} key=${XSScheck(src)} />`)
           );
