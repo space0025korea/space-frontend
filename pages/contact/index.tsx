@@ -3,7 +3,7 @@ import axios from "axios";
 import { PhotoIcon } from "@heroicons/react/24/solid";
 
 import Layout from "components/layout";
-import Spinner from "components/loading";
+import Spinner from "components/spinner";
 
 type FormFieldType = {
   category: string;

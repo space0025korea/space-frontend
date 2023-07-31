@@ -13,7 +13,11 @@ const Navbar = () => {
 
   return (
     <header className="bg-gray-200">
-      <nav className='aria-label="Global mx-auto flex max-w-7xl items-center justify-between px-10 py-6'>
+      <nav
+        className={
+          "mx-auto flex min-h-[var(--nav-height)] max-w-7xl items-center justify-between px-10 py-6"
+        }
+      >
         <Link href="/" className="-m-1.5 p-1.5">
           {
             // TODO: 로고 이미지 삽입
