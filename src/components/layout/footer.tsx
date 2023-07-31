@@ -10,10 +10,9 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="px-10 py-5 text-sm text-slate-800">
-      <hr className="mb-5 w-full" />
+    <footer className="border-t-[1px] border-solid border-gray-200 px-10 py-5 text-sm text-slate-800">
       <h1 className="text-base font-bold">329Design</h1>
-      <div className="flex flex-wrap justify-between">
+      <div className="flex flex-wrap justify-between gap-y-2">
         <div>
           {contents.map((el) =>
             el.key !== "주소" ? (
