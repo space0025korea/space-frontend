@@ -1,57 +1,51 @@
 import React from "react";
+import Link from "next/link";
 import { useQuery } from "@apollo/client";
-import Image from "next/image";
 
-import { GET_PROJECTS } from "pages/api/portfolio";
 import Layout from "components/layout";
+import FullpageSpinenr from "components/spinner/fullpage";
+import { GET_PROJECTS_LIST } from "pages/api/portfolio";
+import { useRouter } from "next/router";
 
-type DataType = {
+type ProjectDataType = {
   attributes: {
-    area: string;
-    category: string;
-    description: string;
-    drawing: {
-      data: { id: number; attributes: { name: string; url: string } }[];
-    };
-    location: string;
-    photos: {
-      data: { id: number; attributes: { name: string; url: string } }[];
-    };
     title: string;
-    updatedAt: string;
   };
   id: string;
 };
 
-const Portfolio = () => {
-  const { data, loading } = useQuery(GET_PROJECTS);
-  const projects: DataType[] = data?.projects?.data;
+const PortfolioList = () => {
+  const { replace } = useRouter();
+  const { data, loading } = useQuery(GET_PROJECTS_LIST);
 
-  if (loading) return <h1>loading</h1>;
-  //TODO: loadingSpinner
+  const projects: ProjectDataType[] = data?.projects?.data;
 
-  return (
-    <>
+  if (loading) {
+    return (
       <Layout title={"포트폴리오"}>
-        {projects.map(({ attributes, id }) => (
-          <li key={id} className="= border-b-8 border-yellow-300">
-            <h1>{attributes.title}</h1>
-            <p>{attributes.description}</p>
-            {attributes.photos.data.map((img) => (
-              <Image
-                src={img.attributes.url}
-                // TODO: 이미지 반응형으로 수정
-                width={200}
-                height={200}
-                alt="drawing images"
-                key={img.id}
-              />
-            ))}
-          </li>
-        ))}
+        <FullpageSpinenr />
       </Layout>
-    </>
-  );
+    );
+  } else if (data) {
+    return (
+      <Layout title={"포트폴리오"}>
+        <ul className="flex flex-col">
+          {projects.map(({ id, attributes }) => (
+            <Link key={id} href={`/portfolio/${id}`}>
+              {attributes.title}
+            </Link>
+          ))}
+        </ul>
+      </Layout>
+    );
+  } else {
+    replace("/404");
+    return (
+      <Layout title={"포트폴리오"}>
+        <FullpageSpinenr />
+      </Layout>
+    );
+  }
 };
 
-export default Portfolio;
+export default PortfolioList;
