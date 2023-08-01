@@ -68,7 +68,11 @@ export const formField: FormFieldType[] = [
         label: "공사 내용 및 컨셉 (최대한 자세하게)",
         inputType: "textarea",
       },
-      { key: "request", label: "공사 시 특별 요청 사항", inputType: "textarea" },
+      {
+        key: "request",
+        label: "공사 시 특별 요청 사항",
+        inputType: "textarea",
+      },
     ],
   },
   {

@@ -1,8 +1,21 @@
 import { gql } from "@apollo/client";
 
-export const GET_PROJECTS = gql`
+export const GET_PROJECTS_LIST = gql`
   query Projects {
     projects {
+      data {
+        id
+        attributes {
+          title
+        }
+      }
+    }
+  }
+`;
+
+export const GET_PROJECT_BY_ID = gql`
+  query ProjectById($id: ID!) {
+    project(id: $id) {
       data {
         id
         attributes {
@@ -12,7 +25,7 @@ export const GET_PROJECTS = gql`
           category
           location
           publishedAt
-          photos {
+          drawing {
             data {
               id
               attributes {
@@ -21,7 +34,7 @@ export const GET_PROJECTS = gql`
               }
             }
           }
-          drawing {
+          photos {
             data {
               id
               attributes {
