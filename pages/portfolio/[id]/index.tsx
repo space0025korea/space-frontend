@@ -32,7 +32,9 @@ type ProjectDataType = {
 
 const Portfolio = () => {
   const { replace, query } = useRouter();
-  const { data, loading } = useQuery(GET_PROJECT_BY_ID, { variables: { id: query.id } });
+  const { data, loading } = useQuery(GET_PROJECT_BY_ID, {
+    variables: { id: query.id },
+  });
 
   const project: ProjectDataType = data?.project?.data;
 

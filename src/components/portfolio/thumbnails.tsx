@@ -10,7 +10,7 @@ type ThumbnailProps = {
 const Thumbnails = ({ images }: ThumbnailProps) => {
   return (
     <section>
-      <ul className="grid grid-cols-3 gap-2">
+      <ul className="grid grid-cols-2 gap-2 lg:grid-cols-3">
         {images.map(({ attributes, id }) => (
           <button key={id} className="relative aspect-square bg-gray-100 ">
             <Image src={attributes.url} alt="thumbnail" fill className="object-cover" />
