@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { useQuery } from "@apollo/client";
@@ -8,6 +8,7 @@ import Layout from "components/layout";
 import FullpageSpinenr from "components/spinner/fullpage";
 import InfoSection from "components/portfolio/info";
 import Thumbnails from "components/portfolio/thumbnails";
+import ImageDialog from "components/portfolio/dialog";
 import { GET_PROJECT_BY_ID } from "pages/api/portfolio";
 
 export type ImgDataType = { id: number; attributes: { name: string; url: string } };
@@ -39,6 +40,8 @@ const Portfolio = () => {
   });
 
   const project: ProjectDataType = data?.project?.data;
+  const [open, setOpen] = useState(false);
+  const [imageIndex, setImageIndex] = useState<number>(0);
 
   if (loading) {
     return (
@@ -59,9 +62,14 @@ const Portfolio = () => {
               <InfoSection attributes={project.attributes} />
             </div>
             <div className="w-full md:w-7/12">
-              <Thumbnails images={project.attributes.photos.data} />
+              <Thumbnails
+                images={project.attributes.photos.data}
+                setOpen={setOpen}
+                setImageIndex={setImageIndex}
+              />
             </div>
           </main>
+          {open && <ImageDialog images={project.attributes.photos.data} imageIndex={imageIndex} />}
         </Layout>
       </>
     );
