@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 import { AttributeType } from "pages/portfolio/[id]";
 
@@ -26,16 +25,6 @@ const InfoSection = ({ attributes }: PropsType) => {
           <span className="text-gray-600">{attributes?.area}</span>
         </li>
       </ul>
-      <div>
-        <p className="mb-2">
-          <strong>설계도면</strong>
-        </p>
-        <ul>
-          {attributes?.drawing.data.map(({ attributes, id }) => (
-            <Image src={attributes.url} alt="drawing" width={400} height={200} key={id} />
-          ))}
-        </ul>
-      </div>
     </section>
   );
 };

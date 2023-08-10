@@ -29,6 +29,7 @@ const PortfolioList = () => {
   } else if (data) {
     return (
       <Layout title={"포트폴리오"}>
+        <h1 className="mb-8 text-lg font-bold">Portfolio</h1>
         <ul className="flex flex-col">
           {projects.map(({ id, attributes }) => (
             <Link key={id} href={`/portfolio/${id}`}>
