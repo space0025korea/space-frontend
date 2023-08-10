@@ -1,6 +1,8 @@
 import React from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import { useQuery } from "@apollo/client";
+import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 
 import Layout from "components/layout";
 import FullpageSpinenr from "components/spinner/fullpage";
@@ -48,6 +50,10 @@ const Portfolio = () => {
     return (
       <>
         <Layout title={"포트폴리오"}>
+          <Link href={"/portfolio"} className="mb-8 flex items-center">
+            <ChevronLeftIcon className="mr-1 h-6 w-6" />
+            <h1 className="text-lg font-bold">Portfolio</h1>
+          </Link>
           <main className="flex flex-col justify-between gap-4 md:flex-row">
             <div className="w-full md:w-5/12">
               <InfoSection attributes={project.attributes} />

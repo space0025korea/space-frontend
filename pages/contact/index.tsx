@@ -20,7 +20,6 @@ type ImgFileType = { src: string; name: string };
 export type InputDataType = {
   [key: string]: string | ImgFileType[];
   request: string;
-  concept: string;
   rating: string;
   budget: string;
   movingDate: string;
@@ -64,13 +63,8 @@ export const formField: FormFieldType[] = [
       { key: "budget", label: "공사 예산 (대략적인 금액)", inputType: "text" },
       { key: "rating", label: "공사 등급 (고급/중급/실용)", inputType: "text" },
       {
-        key: "concept",
-        label: "공사 내용 및 컨셉 (최대한 자세하게)",
-        inputType: "textarea",
-      },
-      {
         key: "request",
-        label: "공사 시 특별 요청 사항",
+        label: "공사 요청 사항",
         inputType: "textarea",
       },
     ],
@@ -94,7 +88,6 @@ const Contact = () => {
     movingDate: "",
     budget: "",
     rating: "",
-    concept: "",
     request: "",
     imgFile: [{ src: "", name: "" }],
   };
@@ -174,7 +167,9 @@ const Contact = () => {
           {formField.map(({ category, question }, index) => (
             <div
               key={category}
-              className="grid grid-cols-1 gap-x-8 gap-y-8 border-b border-gray-900/10 pb-12 md:grid-cols-3"
+              className={`grid grid-cols-1 gap-x-8 gap-y-8 border-b border-gray-900/10 pb-12 md:grid-cols-3 ${
+                category === "첨부파일" ? "border-none" : ""
+              }`}
             >
               <h2 className="text-lg font-semibold leading-7 text-gray-900">{`${
                 index + 1
@@ -271,10 +266,10 @@ const Contact = () => {
             </div>
           ))}
         </div>
-        <div className="mt-6 flex items-center justify-end gap-x-6">
+        <div className="mt-6 flex items-center justify-center gap-x-6">
           <button
             type="submit"
-            className={`rounded-md px-3 py-2 font-semibold ring-1 ring-inset ring-gray-300 ${
+            className={`rounded-md px-7 py-2 font-semibold ring-1 ring-inset ring-gray-300 ${
               isUploading ? "text-gray-300" : "text-black"
             }`}
             disabled={isUploading}

@@ -3,19 +3,23 @@ import Link from "next/link";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-const navigation = [
-  { name: "Portfolio", href: "/portfolio" },
-  { name: "Contact", href: "/contact" },
-];
+type NavBarProps = {
+  noBorder?: boolean;
+};
 
-const Navbar = () => {
+const Navbar = ({ noBorder }: NavBarProps) => {
+  const navigation = [
+    { name: "Portfolio", href: "/portfolio" },
+    { name: "Contact", href: "/contact" },
+  ];
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-gray-200">
+    <header className={noBorder ? "" : "border-b-[1px] border-gray-200"}>
       <nav
         className={
-          "mx-auto flex min-h-[var(--nav-height)] max-w-7xl items-center justify-between px-10 py-6"
+          "mx-auto flex min-h-[var(--nav-height)] max-w-7xl items-center justify-between  px-10 py-6"
         }
       >
         <Link href="/" className="-m-1.5 p-1.5">
@@ -38,7 +42,7 @@ const Navbar = () => {
             <a
               key={item.name}
               href={item.href}
-              className="text-sm font-semibold leading-6 text-gray-900"
+              className="text-lg font-semibold leading-6 text-gray-900"
             >
               {item.name}
             </a>

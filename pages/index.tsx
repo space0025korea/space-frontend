@@ -7,7 +7,7 @@ import Layout from "components/layout";
 const page = () => {
   return (
     <Layout isMain={true}>
-      <Link href={"/portfolio"}>
+      <Link href={"/main"}>
         <div className="relative">
           <Carousel />
           {/* TODO: 로고 디자인 나오면 추가 */}
