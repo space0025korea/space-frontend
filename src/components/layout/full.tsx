@@ -1,25 +1,23 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import Head from "next/head";
 
 import Navbar from "components/nav";
 
 type FullPageLayoutProps = {
-  children: ReactNode;
+  imgUrl: string;
 };
 
-const FullPageLayout = ({ children }: FullPageLayoutProps) => {
+const FullPageLayout = ({ imgUrl }: FullPageLayoutProps) => {
   return (
     <>
       <Head>
         <title>329Design</title>;
       </Head>
       <div
-        // eslint-disable-next-line quotes
-        style={{ backgroundImage: 'url("/images/main1.jpeg")' }}
+        style={{ backgroundImage: `url(${imgUrl})` }}
         className="min-h-screen bg-cover bg-local bg-center bg-no-repeat"
       >
         {<Navbar noBorder />}
-        <main>{children}</main>
       </div>
     </>
   );
