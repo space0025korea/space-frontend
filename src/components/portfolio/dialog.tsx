@@ -1,6 +1,6 @@
-import React from "react";
+import React, { MouseEvent, useRef } from "react";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -14,25 +14,44 @@ type PropsType = {
 };
 
 const ImageDialog = ({ images, imageIndex }: PropsType) => {
+  const swiperRef = useRef<SwiperClass>();
+
+  const handleImageClick = (e: MouseEvent) => {
+    if (swiperRef.current) {
+      swiperRef.current.slideNext();
+    }
+  };
+
   return (
-    <Swiper
-      loop
-      initialSlide={imageIndex}
-      slidesPerView={1}
-      navigation={true}
-      modules={[EffectFade, Navigation]}
-      effect="fade"
-    >
-      <div className="swiper">
-        <div className="swiper-wrapper">
-          {images.map(({ attributes, id }) => (
-            <SwiperSlide key={id} className="min-h-screen min-w-full">
-              <Image src={attributes.url} alt="images" fill className="object-contain shadow-md" />
-            </SwiperSlide>
-          ))}
+    <div>
+      <Swiper
+        loop
+        initialSlide={imageIndex}
+        slidesPerView={1}
+        navigation={true}
+        modules={[EffectFade, Navigation]}
+        effect="fade"
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+        }}
+      >
+        <div className="swiper px-0">
+          <div className="swiper-wrapper">
+            {images.map(({ attributes, id }) => (
+              <SwiperSlide key={id} className="min-h-screen">
+                <Image
+                  src={attributes.url}
+                  alt="images"
+                  fill
+                  className="mx-auto max-w-6xl cursor-pointer object-contain"
+                  onClick={handleImageClick}
+                />
+              </SwiperSlide>
+            ))}
+          </div>
         </div>
-      </div>
-    </Swiper>
+      </Swiper>
+    </div>
   );
 };
 

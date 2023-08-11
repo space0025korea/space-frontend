@@ -75,3 +75,11 @@ a {
 .swiper-button-next::after:hover {
   @apply opacity-100;
 }
+
+.swiper-slide img, .swiper-slide-prev img {
+  @apply hidden;
+}
+
+.swiper-slide-visible img{
+  @apply block;
+}

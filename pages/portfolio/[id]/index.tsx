@@ -9,6 +9,7 @@ import FullpageSpinenr from "components/spinner/fullpage";
 import InfoSection from "components/portfolio/info";
 import Thumbnails from "components/portfolio/thumbnails";
 import ImageDialog from "components/portfolio/dialog";
+import Modal from "components/modal";
 import { GET_PROJECT_BY_ID } from "pages/api/portfolio";
 
 export type ImgDataType = { id: number; attributes: { name: string; url: string } };
@@ -57,7 +58,11 @@ const Portfolio = () => {
             <ChevronLeftIcon className="mr-1 h-6 w-6" />
             <h1 className="text-lg font-bold">Portfolio</h1>
           </Link>
-          <main className="flex flex-col justify-between gap-4 md:flex-row">
+          <main
+            className={`flex flex-col justify-between gap-4 md:flex-row ${
+              open ? "overflow-hidden" : ""
+            }`}
+          >
             <div className="w-full md:w-5/12">
               <InfoSection attributes={project.attributes} />
             </div>
@@ -69,7 +74,11 @@ const Portfolio = () => {
               />
             </div>
           </main>
-          {open && <ImageDialog images={project.attributes.photos.data} imageIndex={imageIndex} />}
+          {open && (
+            <Modal open={open} setOpen={setOpen}>
+              <ImageDialog images={project.attributes.photos.data} imageIndex={imageIndex} />
+            </Modal>
+          )}
         </Layout>
       </>
     );
