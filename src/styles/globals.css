@@ -64,3 +64,22 @@ a {
     min-height: calc(100vh - var(--nav-height) - var(--footer-max-height));
   }
 }
+
+/* swiper styles */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  @apply text-white opacity-50;
+}
+
+.swiper-button-prev::after:hover,
+.swiper-button-next::after:hover {
+  @apply opacity-100;
+}
+
+.swiper-slide img, .swiper-slide-prev img {
+  @apply hidden;
+}
+
+.swiper-slide-visible img{
+  @apply block;
+}
