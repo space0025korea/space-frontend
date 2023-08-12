@@ -6,18 +6,17 @@ import "swiper/css/effect-fade";
 import "swiper/css/autoplay";
 
 const Carousel = () => {
-  const imagesPath = Array.from(
-    { length: 5 },
-    (_, index) => `/images/main${index + 1}.jpeg`
-  );
+  const imagesPath = Array.from({ length: 5 }, (_, index) => `/images/main${index + 1}.jpeg`);
 
   return (
     <Swiper
-      autoplay={{ delay: 4000 }}
+      autoplay={{ delay: 3000, disableOnInteraction: true }}
       loop
       slidesPerView={1}
       modules={[EffectFade, Autoplay]}
       effect="fade"
+      fadeEffect={{ crossFade: true }}
+      speed={2000}
     >
       <div className="swiper">
         <div className="swiper-wrapper">
