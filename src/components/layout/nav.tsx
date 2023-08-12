@@ -22,7 +22,7 @@ const Navbar = ({ noBorder }: NavBarProps) => {
           "mx-auto flex min-h-[var(--nav-height)] max-w-7xl items-center justify-between  px-10 py-6"
         }
       >
-        <Link href="/" className="-m-1.5 p-1.5">
+        <Link href="/main" className="-m-1.5 p-1.5">
           {
             // TODO: 로고 이미지 삽입
             <p className="font-extrabold">329Design</p>
