@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import Head from "next/head";
 
 import Footer from "components/layout/footer";
-import Navbar from "components/nav";
+import Navbar from "components/layout/nav";
 
 type LayoutProps = {
   children: ReactNode;

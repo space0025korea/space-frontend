@@ -18,9 +18,6 @@ export type AttributeType = {
   area: string;
   category: string;
   description: string;
-  drawing: {
-    data: ImgDataType[];
-  };
   location: string;
   photos: {
     data: ImgDataType[];

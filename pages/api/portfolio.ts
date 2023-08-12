@@ -24,16 +24,6 @@ export const GET_PROJECT_BY_ID = gql`
           area
           category
           location
-          publishedAt
-          drawing {
-            data {
-              id
-              attributes {
-                name
-                url
-              }
-            }
-          }
           photos {
             data {
               id
