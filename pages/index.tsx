@@ -14,10 +14,10 @@ const page = () => {
           <Image
             src="/images/logo/main.png"
             alt="main logo"
-            width={48}
-            height={48}
+            width={44}
+            height={44}
             priority
-            className="absolute left-1/2 top-1/2 z-10 h-12 w-12 -translate-x-1/2 -translate-y-1/2"
+            className="absolute left-1/2 top-1/2 z-10 h-11 w-11 -translate-x-1/2 -translate-y-1/2"
           />
         </div>
       </Link>
