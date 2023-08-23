@@ -50,7 +50,7 @@ const Portfolio = () => {
     return (
       <>
         <Layout title={"Portfolio"}>
-          <div className="xl:ml-28">
+          <div className="xl:mx-28">
             <Link href={"/portfolio"} className="mb-8 flex items-center">
               <ChevronLeftIcon className="mr-1 h-6 w-6" />
               <h1 className="text-lg font-bold">Portfolio</h1>

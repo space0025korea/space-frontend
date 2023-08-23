@@ -29,7 +29,7 @@ const PortfolioList = () => {
   } else if (data) {
     return (
       <Layout title={"Portfolio"}>
-        <div className="xl:ml-28">
+        <div className="xl:mx-28">
           <h1 className="mb-8 text-lg font-bold">Portfolio</h1>
           <ul className="flex flex-col">
             {projects.map(({ id, attributes }) => (

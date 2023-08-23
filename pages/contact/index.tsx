@@ -171,7 +171,7 @@ const Contact = () => {
                 category === "첨부파일" ? "border-none" : ""
               }`}
             >
-              <h2 className="text-lg font-semibold leading-7 text-gray-900">{`${
+              <h2 className="text-lg font-semibold leading-7 text-gray-900 md:text-right">{`${
                 index + 1
               }. ${category}`}</h2>
               <div className="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-6 md:col-span-2">
