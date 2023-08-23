@@ -161,7 +161,7 @@ const Contact = () => {
   };
 
   return (
-    <Layout title="문의">
+    <Layout title="Contact">
       <form onSubmit={submit} method="post" action={process.env.NEXT_PUBLIC_SUBMIT_URL}>
         <div className="space-y-12">
           {formField.map(({ category, question }, index) => (

@@ -42,14 +42,14 @@ const Portfolio = () => {
 
   if (loading) {
     return (
-      <Layout title={"포트폴리오"}>
+      <Layout title={"Portfolio"}>
         <FullpageSpinenr />
       </Layout>
     );
   } else if (project) {
     return (
       <>
-        <Layout title={"포트폴리오"}>
+        <Layout title={"Portfolio"}>
           <div className="xl:ml-28">
             <Link href={"/portfolio"} className="mb-8 flex items-center">
               <ChevronLeftIcon className="mr-1 h-6 w-6" />
@@ -84,7 +84,7 @@ const Portfolio = () => {
   } else {
     replace("/portfolio");
     return (
-      <Layout title={"포트폴리오"}>
+      <Layout title={"Portfolio"}>
         <FullpageSpinenr />
       </Layout>
     );
