@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
@@ -17,18 +18,17 @@ const Navbar = ({ noBorder }: NavBarProps) => {
 
   return (
     <header className={noBorder ? "" : "border-b-[1px] border-gray-200"}>
-      <nav
-        className={
-          "mx-auto flex min-h-[var(--nav-height)] max-w-7xl items-center justify-between  px-10 py-6"
-        }
-      >
+      <nav className="flex min-h-[var(--nav-height)] items-center justify-between px-8 py-6 xl:px-36">
         <Link href="/main" className="-m-1.5 p-1.5">
-          {
-            // TODO: 로고 이미지 삽입
-            <p className="font-extrabold">329Design</p>
-          }
+          <Image
+            src="/images/logo/nav.png"
+            alt="logo"
+            width={100}
+            height={100}
+            className="h-auto w-auto"
+          />
         </Link>
-        <div className=" lg:hidden">
+        <div className="lg:hidden">
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
@@ -53,10 +53,13 @@ const Navbar = ({ noBorder }: NavBarProps) => {
         <div className="fixed inset-0 z-10" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            {
-              // TODO: 로고 이미지 삽입
-              <p className="font-extrabold">329Design</p>
-            }
+            <Image
+              src="/images/logo/nav.png"
+              alt="logo"
+              width={100}
+              height={100}
+              className="-m-1 h-auto w-auto"
+            />
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-gray-700"

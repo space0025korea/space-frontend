@@ -18,7 +18,7 @@ const Layout = ({ children, title, isMain }: LayoutProps) => {
       </Head>
       <div className="min-h-screen ">
         {!isMain && <Navbar />}
-        <main className={isMain ? "" : "layout-min-height px-10 py-5"}>{children}</main>
+        <main className={isMain ? "" : "layout-min-height px-8 py-5"}>{children}</main>
         {!isMain && <Footer />}
       </div>
     </>

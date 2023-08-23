@@ -17,7 +17,7 @@ const Thumbnails = ({ images, setOpen, setImageIndex }: ThumbnailProps) => {
 
   return (
     <section>
-      <ul className="grid grid-cols-2 gap-2 lg:grid-cols-3">
+      <ul className="grid grid-cols-2 gap-4 lg:grid-cols-3">
         {images.map(({ attributes, id }, idx) => (
           <button
             onClick={() => onClick(idx)}

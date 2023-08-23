@@ -16,20 +16,20 @@ type ProjectDataType = {
 
 const PortfolioList = () => {
   const { replace } = useRouter();
-  const { data, loading } = useQuery(GET_PROJECTS_LIST);
+  const { data, loading, error } = useQuery(GET_PROJECTS_LIST);
 
   const projects: ProjectDataType[] = data?.projects?.data;
 
   if (loading) {
     return (
-      <Layout title={"포트폴리오"}>
+      <Layout title={"Portfolio"}>
         <FullpageSpinenr />
       </Layout>
     );
   } else if (data) {
     return (
-      <Layout title={"포트폴리오"}>
-        <div className="xl:ml-28">
+      <Layout title={"Portfolio"}>
+        <div className="xl:mx-28">
           <h1 className="mb-8 text-lg font-bold">Portfolio</h1>
           <ul className="flex flex-col">
             {projects.map(({ id, attributes }) => (
@@ -41,10 +41,10 @@ const PortfolioList = () => {
         </div>
       </Layout>
     );
-  } else {
+  } else if (error) {
     replace("/404");
     return (
-      <Layout title={"포트폴리오"}>
+      <Layout title={"Portfolio"}>
         <FullpageSpinenr />
       </Layout>
     );

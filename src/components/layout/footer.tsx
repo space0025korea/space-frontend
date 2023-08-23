@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const Footer = () => {
@@ -10,8 +11,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="border-t-[1px] border-solid border-gray-200 px-10 py-5 text-sm text-slate-800">
-      <h1 className="text-base font-bold">329Design</h1>
+    <footer className="border-t-[1px] border-solid border-gray-200 px-8 py-5 text-sm text-slate-800 xl:px-36">
+      <Image src="/images/logo/nav.png" alt="logo" width={100} height={100} className="-mx-1" />
       <div className="flex flex-wrap justify-between gap-y-2">
         <div>
           {contents.map((el) =>
