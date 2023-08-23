@@ -17,10 +17,6 @@ const InfoSection = ({ attributes }: PropsType) => {
           <span className="text-gray-600">{attributes?.location}</span>
         </li>
         <li>
-          <strong>범주&nbsp;</strong>
-          <span className="text-gray-600">{attributes?.category}</span>
-        </li>
-        <li>
           <strong>면적&nbsp;</strong>
           <span className="text-gray-600">{attributes?.area}</span>
         </li>
