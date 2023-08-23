@@ -16,7 +16,6 @@ export type ImgDataType = { id: number; attributes: { name: string; url: string 
 
 export type AttributeType = {
   area: string;
-  category: string;
   description: string;
   location: string;
   photos: {

@@ -22,7 +22,6 @@ export const GET_PROJECT_BY_ID = gql`
           description
           title
           area
-          category
           location
           photos {
             data {

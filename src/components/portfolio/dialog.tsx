@@ -43,6 +43,7 @@ const ImageDialog = ({ images, imageIndex }: PropsType) => {
                   src={attributes.url}
                   alt="images"
                   fill
+                  sizes="100%"
                   className="mx-auto max-w-6xl cursor-pointer object-contain"
                   onClick={handleImageClick}
                 />

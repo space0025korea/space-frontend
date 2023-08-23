@@ -22,9 +22,16 @@ const Thumbnails = ({ images, setOpen, setImageIndex }: ThumbnailProps) => {
           <button
             onClick={() => onClick(idx)}
             key={id}
-            className="relative aspect-square bg-gray-100 "
+            className="relative aspect-square bg-gray-100"
           >
-            <Image src={attributes.url} alt="thumbnail" fill className="object-cover" />
+            <Image
+              src={attributes.url}
+              alt="thumbnail"
+              fill
+              className="object-cover"
+              priority={idx === 0}
+              sizes="100%"
+            />
           </button>
         ))}
       </ul>
