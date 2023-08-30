@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
 
 import Layout from "components/layout";
 import FullpageSpinenr from "components/spinner/fullpage";
 import { GET_PROJECTS_LIST } from "pages/api/portfolio";
-import { useRouter } from "next/router";
 
 type ProjectDataType = {
   attributes: {
@@ -30,7 +30,7 @@ const PortfolioList = () => {
     return (
       <Layout title={"Portfolio"}>
         <div className="xl:mx-28">
-          <h1 className="mb-8 text-lg font-bold">Portfolio</h1>
+          <h1 className="mb-6 text-lg font-bold xl:mt-8">Portfolio</h1>
           <ul className="flex flex-col">
             {projects.map(({ id, attributes }) => (
               <Link key={id} href={`/portfolio/${id}`}>

@@ -49,12 +49,12 @@ export const formField: FormFieldType[] = [
     question: [
       {
         key: "buildingType",
-        label: "건물 유형 (아파트/빌라/사무실/상가)",
+        label: "건물 유형 (아파트/빌라/기타)",
         inputType: "text",
       },
       {
         key: "buildingAddr",
-        label: "건물 주소 (타입/아파트 명)",
+        label: "건물 주소",
         inputType: "text",
       },
       { key: "area", label: "분양 평수", inputType: "text" },
