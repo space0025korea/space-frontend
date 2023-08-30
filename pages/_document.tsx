@@ -19,6 +19,11 @@ export default function Document() {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
         />
+        <meta name="naver-site-verification" content="a503038f047e43414cd7480296ef2a397381003d" />
+        <meta
+          name="google-site-verification"
+          content="9L4pCPdg-SVewotr4vo_iishXAFU9GssbVI4ic3MmCI"
+        />
       </Head>
       <body>
         <Main />
