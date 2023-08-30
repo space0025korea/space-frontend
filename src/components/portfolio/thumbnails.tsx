@@ -29,7 +29,7 @@ const Thumbnails = ({ images, setOpen, setImageIndex }: ThumbnailProps) => {
               alt="thumbnail"
               fill
               className="object-cover"
-              priority={idx === 0}
+              priority={idx < 10}
               sizes="100%"
             />
           </button>

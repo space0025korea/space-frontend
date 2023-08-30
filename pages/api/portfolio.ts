@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 export const GET_PROJECTS_LIST = gql`
   query Projects {
-    projects {
+    projects(pagination: { limit: 100 }, sort: "createdAt:desc") {
       data {
         id
         attributes {
@@ -23,7 +23,7 @@ export const GET_PROJECT_BY_ID = gql`
           title
           area
           location
-          photos {
+          photos(pagination: { limit: 100 }) {
             data {
               id
               attributes {
