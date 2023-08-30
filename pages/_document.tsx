@@ -5,9 +5,12 @@ export default function Document() {
     <Html lang="ko">
       <Head>
         <link rel="icon" href="/images/favicon.ico" sizes="any" />
-        {/* TODO: keyword, desc 수정 */}
-        <meta name="keyword" content="인테리어 디자인,인테리어,329Design,329디자인" />
-        <meta name="description" content="" />
+        {/* TODO:  desc 수정 */}
+        <meta
+          name="keyword"
+          content="인테리어 디자인,인테리어,329design,329디자인,송파인테리어,강남인테리어"
+        />
+        <meta name="description" content="329Design" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://329design.co.kr" />
         <meta property="og:title" content="329Design" />

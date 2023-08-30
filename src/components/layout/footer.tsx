@@ -10,7 +10,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="border-t-[1px] border-solid border-gray-200 px-8 py-5 text-sm text-slate-800 xl:px-36">
+    <footer className="border-t-[1px] border-solid border-gray-200 px-8 py-5 text-xs text-slate-800 xl:px-36">
       <Image
         src="/images/logo/nav.png"
         alt="logo"

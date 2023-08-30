@@ -8,8 +8,8 @@ type PropsType = {
 
 const InfoSection = ({ attributes }: PropsType) => {
   return (
-    <section className="flex flex-col gap-y-6">
-      <h1 className="text-lg">{attributes?.title}</h1>
+    <section className="gap-y flex flex-col text-sm">
+      <h1 className="mb-1 text-lg">{attributes?.title}</h1>
       <p className="text-gray-600">{attributes?.description}</p>
       <ul>
         <li>
