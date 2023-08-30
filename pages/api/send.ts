@@ -4,7 +4,7 @@ import nodemailer from "nodemailer";
 import { generateEmail } from "src/utils/generateEmail";
 
 const transporter = nodemailer.createTransport({
-  service: "naver",
+  service: "gmail",
   auth: {
     user: process.env.NEXT_PUBLIC_EMAIL_USER,
     pass: process.env.NEXT_PUBLIC_EMAIL_PASS,
@@ -21,11 +21,12 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
         subject: `🏡329DESIGN 고객 문의 메일 ${req.body.name}님`,
         html: generateEmail(req.body),
       },
-      (err, info) => {
+      (err) => {
         if (err) {
-          res.status(500).json({
-            message: "이메일 발송 중 오류가 발생했습니다.\n329space@naver.com 로 메일 보내주세요.",
-          });
+          console.log(err);
+          // res.status(500).json({
+          //   message: "이메일 발송 중 오류가 발생했습니다.\n329space@naver.com 로 메일 보내주세요.",
+          // });
         } else {
           res
             .status(200)
