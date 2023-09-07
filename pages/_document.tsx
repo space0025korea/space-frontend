@@ -13,10 +13,10 @@ export default function Document() {
         <meta name="description" content="329Design" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://329design.co.kr" />
-        <meta property="og:title" content="329Design" />
+        <meta property="og:title" content="329디자인 | 329Design" />
         <meta property="og:image" content="https://329design.co.kr/images/logo/preview.png" />
         <meta property="og:description" content="329Design" />
-        <meta property="og:site_name" content="329Design" />
+        <meta property="og:site_name" content="329디자인 | 329Design" />
         <meta property="og:locale" content="ko_KR" />
         <meta
           name="viewport"
