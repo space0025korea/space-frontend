@@ -8,20 +8,16 @@ export default function Document() {
         {/* TODO:  desc 수정 */}
         <meta
           name="keyword"
-          content="인테리어 디자인,인테리어,329design,329디자인,송파인테리어,강남인테리어"
+          content="인테리어 디자인, 인테리어, 329design, 329디자인, 송파인테리어, 강남인테리어"
         />
         <meta name="description" content="329Design" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://329design.co.kr" />
-        <meta property="og:title" content="329Design" />
+        <meta property="og:title" content="329디자인 | 329Design" />
         <meta property="og:image" content="https://329design.co.kr/images/logo/preview.png" />
         <meta property="og:description" content="329Design" />
-        <meta property="og:site_name" content="329Design" />
+        <meta property="og:site_name" content="329디자인 | 329Design" />
         <meta property="og:locale" content="ko_KR" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-        />
         <meta name="naver-site-verification" content="a503038f047e43414cd7480296ef2a397381003d" />
         <meta
           name="google-site-verification"
