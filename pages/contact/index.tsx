@@ -10,29 +10,48 @@ type FormFieldType = {
   question: {
     key: string;
     label: string;
-    inputType: "text" | "textarea" | "file";
+    inputType: "text" | "textarea" | "file" | "select";
+    options?: string[];
     required?: boolean;
   }[];
 };
-
 type ImgFileType = { src: string; name: string };
+type BuildingOption = "아파트" | "빌라" | "기타";
+type BudgetOption =
+  | "4천~6천"
+  | "6천~8천"
+  | "8천~1억"
+  | "1억 2천~1억 4천"
+  | "1억 6천~1억 8천"
+  | "2억 이상";
+type AreaOption = "20~30평" | "30~40평" | "40~50평" | "50평 이상";
 
 export type InputDataType = {
   [key: string]: string | ImgFileType[];
   request: string;
-  rating: string;
-  budget: string;
+  budget: BudgetOption;
   movingDate: string;
   constructionDate: string;
-  area: string;
+  area: AreaOption;
   buildingAddr: string;
-  buildingType: string;
+  buildingType: BuildingOption;
   family: string;
   callTime: string;
   phone: string;
   name: string;
   imgFile: ImgFileType[];
 };
+
+const buildingOptions: BuildingOption[] = ["아파트", "빌라", "기타"];
+const budgetOptions: BudgetOption[] = [
+  "4천~6천",
+  "6천~8천",
+  "8천~1억",
+  "1억 2천~1억 4천",
+  "1억 6천~1억 8천",
+  "2억 이상",
+];
+const areaOptions: AreaOption[] = ["20~30평", "30~40평", "40~50평", "50평 이상"];
 
 export const formField: FormFieldType[] = [
   {
@@ -49,19 +68,29 @@ export const formField: FormFieldType[] = [
     question: [
       {
         key: "buildingType",
-        label: "건물 유형 (아파트/빌라/기타)",
-        inputType: "text",
+        label: "건물 유형",
+        inputType: "select",
+        options: buildingOptions,
       },
       {
         key: "buildingAddr",
         label: "건물 주소",
         inputType: "text",
       },
-      { key: "area", label: "분양 평수", inputType: "text" },
+      {
+        key: "area",
+        label: "분양 평수",
+        inputType: "select",
+        options: areaOptions,
+      },
       { key: "constructionDate", label: "공사 가능 날짜", inputType: "text" },
       { key: "movingDate", label: "입주 예정일", inputType: "text" },
-      { key: "budget", label: "공사 예산 (대략적인 금액)", inputType: "text" },
-      { key: "rating", label: "공사 등급 (고급/중급/실용)", inputType: "text" },
+      {
+        key: "budget",
+        label: "공사 예산 (대략적인 금액)",
+        inputType: "select",
+        options: budgetOptions,
+      },
       {
         key: "request",
         label: "공사 요청 사항",
@@ -81,13 +110,12 @@ const Contact = () => {
     phone: "",
     callTime: "",
     family: "",
-    buildingType: "",
+    buildingType: buildingOptions[0],
     buildingAddr: "",
-    area: "",
+    area: areaOptions[0],
     constructionDate: "",
     movingDate: "",
-    budget: "",
-    rating: "",
+    budget: budgetOptions[0],
     request: "",
     imgFile: [{ src: "", name: "" }],
   };
@@ -122,7 +150,7 @@ const Contact = () => {
     return uploadImage(fileList);
   };
 
-  const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setInputData({ ...inputData, [name]: value });
   };
@@ -175,7 +203,7 @@ const Contact = () => {
                 index + 1
               }. ${category}`}</h2>
               <div className="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-6 md:col-span-2">
-                {question.map(({ key, label, inputType, required }) => (
+                {question.map(({ key, label, inputType, required, options }) => (
                   <div key={key} className="sm:col-span-4">
                     {inputType === "file" ? (
                       <div className="col-span-full">
@@ -238,6 +266,25 @@ const Contact = () => {
                             value={inputData[key] as string}
                             onChange={onChange}
                           />
+                        </div>
+                      </div>
+                    ) : inputType === "select" ? (
+                      <div className="col-span-full">
+                        <label htmlFor={key} className="block font-medium leading-6 text-gray-900">
+                          {label}
+                        </label>
+                        <div className="mt-2">
+                          <select
+                            className="block w-full flex-1 rounded-md border-solid border-gray-300 bg-transparent py-1.5 pl-3  text-gray-900 shadow-sm focus:border-gray-300 focus:ring-0 sm:text-sm sm:leading-6 "
+                            name={key}
+                            onChange={onChange}
+                          >
+                            {options?.map((option) => (
+                              <option key={option} value={option}>
+                                {option}
+                              </option>
+                            ))}
+                          </select>
                         </div>
                       </div>
                     ) : (
