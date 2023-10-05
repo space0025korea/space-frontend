@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import axios from "axios";
 import { PhotoIcon } from "@heroicons/react/24/solid";
+import { captureException } from "@sentry/nextjs";
 
 import Layout from "components/layout";
 import Spinner from "components/spinner";
@@ -175,7 +176,7 @@ const Contact = () => {
   const submit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSending(true);
-    axios
+    await axios
       .post("/api/send", inputData)
       .then((res) => {
         setIsSending(false);
@@ -184,6 +185,7 @@ const Contact = () => {
       })
       .catch((err) => {
         setIsSending(false);
+        captureException(err);
         alert(err.response.data.message);
       });
   };

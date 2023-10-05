@@ -23,10 +23,9 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
       },
       (err) => {
         if (err) {
-          console.log(err);
-          // res.status(500).json({
-          //   message: "이메일 발송 중 오류가 발생했습니다.\n329space@naver.com 로 메일 보내주세요.",
-          // });
+          res.status(500).json({
+            message: "이메일 발송 중 오류가 발생했습니다.\n329space@naver.com 로 메일 보내주세요.",
+          });
         } else {
           res
             .status(200)
