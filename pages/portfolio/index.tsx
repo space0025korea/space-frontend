@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
+import { captureException } from "@sentry/nextjs";
 
 import Layout from "components/layout";
 import FullpageSpinenr from "components/spinner/fullpage";
@@ -42,6 +43,7 @@ const PortfolioList = () => {
       </Layout>
     );
   } else if (error) {
+    captureException(error);
     replace("/404");
     return (
       <Layout title={"Portfolio"}>

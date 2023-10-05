@@ -1,10 +1,10 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import axios from "axios";
 import { PhotoIcon } from "@heroicons/react/24/solid";
+import { captureException } from "@sentry/nextjs";
 
 import Layout from "components/layout";
 import Spinner from "components/spinner";
-import { captureException } from "@sentry/nextjs";
 
 type FormFieldType = {
   category: string;

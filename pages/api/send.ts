@@ -17,20 +17,19 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
     transporter.sendMail(
       {
         from: process.env.NEXT_PUBLIC_EMAIL_USER,
-        // to: process.env.NEXT_PUBLIC_EMAIL_RECEIVER,
+        to: process.env.NEXT_PUBLIC_EMAIL_RECEIVER,
         subject: `🏡329DESIGN 고객 문의 메일 ${req.body.name}님`,
         html: generateEmail(req.body),
       },
       (err) => {
         if (err) {
-          console.log(err);
           res.status(500).json({
             message: "이메일 발송 중 오류가 발생했습니다.\n329space@naver.com 로 메일 보내주세요.",
           });
         } else {
-          res.status(500).json({ message: "sentry error test" });
-          // .status(200)
-          // .json({ message: "이메일이 발송되었습니다. 빠른 시간 내에 연락드리겠습니다." });
+          res
+            .status(200)
+            .json({ message: "이메일이 발송되었습니다. 빠른 시간 내에 연락드리겠습니다." });
         }
       }
     );

@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { useQuery } from "@apollo/client";
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
+import { captureException } from "@sentry/nextjs";
 
 import Layout from "components/layout";
 import FullpageSpinenr from "components/spinner/fullpage";
@@ -32,7 +33,7 @@ type ProjectDataType = {
 
 const Portfolio = () => {
   const { replace, query } = useRouter();
-  const { data, loading } = useQuery(GET_PROJECT_BY_ID, {
+  const { data, loading, error } = useQuery(GET_PROJECT_BY_ID, {
     variables: { id: query.id },
   });
 
@@ -81,7 +82,8 @@ const Portfolio = () => {
         </Layout>
       </>
     );
-  } else {
+  } else if (error) {
+    captureException(error);
     replace("/portfolio");
     return (
       <Layout title={"Portfolio"}>
