@@ -16,7 +16,7 @@ const Footer = () => {
         alt="logo"
         width={100}
         height={50}
-        className="-mx-1 -mb-5"
+        className="-mx-1 h-auto w-auto"
       />
       <div className="flex flex-wrap justify-between gap-y-2">
         <div>
