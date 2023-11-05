@@ -7,7 +7,7 @@ export default function Document() {
         <link rel="icon" href="/images/favicon.ico" sizes="any" />
         <meta
           name="keyword"
-          content="인테리어 디자인, 인테리어, 329design, 329디자인, 송파인테리어, 강남인테리어"
+          content="인테리어 디자인, 인테리어, 공간제작소, 서울인테리어, 송파인테리어, 강남인테리어"
         />
         <meta name="description" content="더 나은 공간을 고민하고 연구합니다." />
         <meta property="og:type" content="website" />

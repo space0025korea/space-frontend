@@ -18,7 +18,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
       {
         from: process.env.NEXT_PUBLIC_EMAIL_USER,
         to: process.env.NEXT_PUBLIC_EMAIL_RECEIVER,
-        subject: `🏡329DESIGN 고객 문의 메일 ${req.body.name}님`,
+        subject: `🏡공간제작소 고객 문의 메일 ${req.body.name}님`,
         html: generateEmail(req.body),
       },
       (err) => {

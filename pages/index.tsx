@@ -12,12 +12,12 @@ const page = () => {
         <div className="relative">
           <Carousel />
           <Image
-            src="/images/logo/main.png"
+            src="/images/logo/logo.png"
             alt="main logo"
-            width={44}
-            height={44}
+            width={200}
+            height={200}
             priority
-            className="absolute left-1/2 top-1/2 z-10 h-11 w-11 -translate-x-1/2 -translate-y-1/2"
+            className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2"
           />
         </div>
       </Link>

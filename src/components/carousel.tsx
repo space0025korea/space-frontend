@@ -6,7 +6,7 @@ import "swiper/css/effect-fade";
 import "swiper/css/autoplay";
 
 const Carousel = () => {
-  const imagesPath = Array.from({ length: 5 }, (_, index) => `/images/main${index + 1}.jpeg`);
+  const imagesPath = Array.from({ length: 5 }, (_, index) => `/images/main${index + 1}.jpg`);
 
   return (
     <Swiper
