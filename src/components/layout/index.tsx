@@ -14,7 +14,7 @@ const Layout = ({ children, title, isMain }: LayoutProps) => {
   return (
     <>
       <Head>
-        <title>{title ? `329Design | ${title}` : "329Design"}</title>;
+        <title>{title ? `공간제작소 | ${title}` : "공간제작소"}</title>;
       </Head>
       <div className="min-h-screen">
         {!isMain && <Navbar />}
