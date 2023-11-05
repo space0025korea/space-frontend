@@ -10,13 +10,13 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="border-t-[1px] border-solid border-gray-200 px-8 pb-5 text-xs text-slate-800 xl:px-36">
+    <footer className="border-t-[1px] border-solid border-gray-200 px-8 py-5 text-xs text-slate-800 xl:px-36">
       <Image
         src="/images/logo/logo.png"
         alt="logo"
         width={100}
         height={50}
-        className="-mx-1 h-auto w-auto"
+        className="-mx-1 mb-2 h-auto w-auto"
       />
       <div className="flex flex-wrap justify-between gap-y-2">
         <div>
