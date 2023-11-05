@@ -162,7 +162,7 @@ const Contact = () => {
     setIsUploading(true);
     for (let i = 0; i < files.length; i++) {
       formData.append("file", files[i]);
-      formData.append("upload_preset", "hdg45mhf");
+      formData.append("upload_preset", "qtnzwobv");
 
       await axios.post("/cloudinary/image/upload", formData).then((res) => {
         imgFileArray.push({ src: res.data.secure_url, name: files[i].name });

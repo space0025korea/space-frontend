@@ -11,7 +11,7 @@ const FullPageLayout = ({ imgUrl }: FullPageLayoutProps) => {
   return (
     <>
       <Head>
-        <title>329Design</title>;
+        <title>공간제작소</title>;
       </Head>
       <div
         style={{ backgroundImage: `url(${imgUrl})` }}
