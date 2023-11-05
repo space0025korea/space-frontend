@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: "baijamjuree";
-  src: url("/fonts/BaiJamjuree.ttf") format("ttf")
+  src: url("/fonts/BaiJamjuree.ttf") format("ttf");
 }
 
 @font-face {
@@ -30,10 +30,9 @@ body {
 
 * {
   box-sizing: border-box;
-  font-family: pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
-    "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
-    "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    sans-serif;
+  font-family: pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue",
+    "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 ul,
@@ -81,10 +80,11 @@ a {
   @apply opacity-100;
 }
 
-.swiper-slide img, .swiper-slide-prev img {
+.swiper-slide img,
+.swiper-slide-prev img {
   @apply hidden;
 }
 
-.swiper-slide-visible img{
+.swiper-slide-visible img {
   @apply block;
 }
