@@ -18,7 +18,7 @@ const Navbar = ({ noBorder }: NavBarProps) => {
 
   return (
     <header className={noBorder ? "" : "border-b-[1px] border-gray-200"}>
-      <nav className="flex  min-h-[var(--nav-height)] items-center justify-between px-8 xl:px-36">
+      <nav className="flex max-h-[var(--nav-height)] items-center justify-between px-8 xl:px-36">
         <Link href="/main" className="-m-2">
           <Image src="/images/logo/logo.png" alt="logo" width={100} height={100} priority />
         </Link>

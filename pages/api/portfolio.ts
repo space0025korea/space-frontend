@@ -6,6 +6,7 @@ export const GET_PROJECTS_LIST = gql`
       data {
         id
         attributes {
+          category
           title
         }
       }

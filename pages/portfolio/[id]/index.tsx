@@ -83,7 +83,9 @@ const Portfolio = () => {
       </>
     );
   } else if (error) {
-    captureException(error);
+    if (process.env.NODE_ENV === "production") {
+      captureException(error);
+    }
     replace("/portfolio");
     return (
       <Layout title={"Portfolio"}>
