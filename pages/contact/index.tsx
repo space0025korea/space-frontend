@@ -100,8 +100,15 @@ export const formField: FormFieldType[] = [
     ],
   },
   {
-    category: "첨부파일",
-    question: [{ key: "imgFile", label: "첨부파일", inputType: "file" }],
+    category: "현장 평면도 및 참고 레퍼런스",
+    question: [
+      {
+        key: "imgFile",
+        label:
+          "* 가급적 관리소에 요청하시어 건축도면으로 첨부해주세요.\n* 파일 갯수 제한: 최대 5개\n* 파일 용량 제한: 최대 2mb",
+        inputType: "file",
+      },
+    ],
   },
 ];
 
@@ -211,10 +218,9 @@ const Contact = () => {
                       <div className="col-span-full">
                         <label
                           htmlFor={key}
-                          className="block text-sm font-medium leading-6 text-gray-900"
+                          className="block whitespace-pre-wrap text-sm font-medium leading-6 text-gray-900"
                         >
-                          * 파일 갯수 제한: 최대 5개
-                          <br />* 파일 용량 제한: 최대 2mb
+                          {label}
                         </label>
                         <label
                           htmlFor={key}

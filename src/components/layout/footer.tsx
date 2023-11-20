@@ -6,7 +6,7 @@ const Footer = () => {
     { key: "대표", value: "임형준" },
     { key: "전화", value: "010-5602-0025" },
     { key: "이메일", value: "space0025@naver.com" },
-    { key: "주소", value: "서울특별시 송파구 송파대로 222 인쇼 3층" },
+    { key: "주소", value: "서울특별시 강남구 개포로38길 18 화인빌딩 2층" },
   ];
 
   return (
@@ -35,8 +35,7 @@ const Footer = () => {
           )}
         </div>
         <div>
-          {/* TODO: 영어이름 나오면 수정 */}
-          <p>Copyright ©{new Date().getFullYear()} 329Design All rights reserved.</p>
+          <p>Copyright ©{new Date().getFullYear()} 공간제작소 All rights reserved.</p>
         </div>
       </div>
     </footer>
