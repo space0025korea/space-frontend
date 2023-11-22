@@ -55,11 +55,10 @@ a {
 
 :root {
   --nav-height: 5rem;
-  --footer-min-height: 6.18rem;
+  --footer-min-height: 7.5rem;
 }
 
 @layer utilities {
-  /* FIXME: footer min Layout 수정 */
   .layout-min-height {
     min-height: calc(100vh - var(--nav-height) - var(--footer-min-height));
   }
