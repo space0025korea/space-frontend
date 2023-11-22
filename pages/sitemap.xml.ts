@@ -3,7 +3,7 @@ import { ServerResponse } from "http";
 
 import { GET_PROJECTS_LIST } from "pages/api/portfolio";
 
-const URL = "https://329design.co.kr";
+const URL = "https://thecreation.kr";
 
 type DataType = {
   id: string;
