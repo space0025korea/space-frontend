@@ -40,7 +40,11 @@ const PortfolioList = () => {
               {projects
                 .filter(({ attributes }) => attributes.category === "living")
                 .map(({ id, attributes }) => (
-                  <Link key={id} href={`/portfolio/${id}`}>
+                  <Link
+                    key={id}
+                    href={`/portfolio/${id}`}
+                    className="mb-1 block text-gray-800"
+                  >
                     {attributes.title}
                   </Link>
                 ))}
@@ -48,9 +52,15 @@ const PortfolioList = () => {
             <div>
               <p className="mb-1 text-lg font-semibold">상업공간</p>
               {projects
-                .filter(({ attributes }) => attributes.category === "commercial")
+                .filter(
+                  ({ attributes }) => attributes.category === "commercial"
+                )
                 .map(({ id, attributes }) => (
-                  <Link key={id} href={`/portfolio/${id}`}>
+                  <Link
+                    key={id}
+                    href={`/portfolio/${id}`}
+                    className="mb-1 block text-gray-800"
+                  >
                     {attributes.title}
                   </Link>
                 ))}
